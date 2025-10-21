@@ -65,11 +65,10 @@ const Header = () => {
                 ease-in-out
                 hover:scale-105
                 hover:text-accent
-                text-white
                 ${
                   location.hash === data.link
-                    ? "border-b-2 border-accent"
-                    : ""
+                    ? "border-b-2 border-accent text-accent"
+                    : "text-white"
                 }
               `}
             >

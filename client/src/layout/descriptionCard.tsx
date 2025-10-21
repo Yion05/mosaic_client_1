@@ -1,6 +1,6 @@
 const HeroDescriptionOne = () => {
   return (
-    <section className="bg-black py-16 md:py-24 w-full">
+    <section className="bg-black py-16 md:py-24 w-full px-4">
       <div className="text-center flex flex-col items-center">
         <h1 className="text-accent font-normal text-3xl md:text-4xl mb-6 md:mb-8 leading-snug">
           Welcome to Mosaic, an exclusive service apartment in USJ 1, Subang
