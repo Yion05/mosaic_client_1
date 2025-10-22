@@ -9,7 +9,7 @@ import LocationCard, {
 import VideoHeroOne from "../layout/videoHeroOne";
 import VRTour from "../layout/vrTourCard";
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <section className="flex flex-col items-center justify-center">
       <div className="w-full bg-black" id="home">
@@ -18,7 +18,7 @@ const Home = () => {
       <div className="w-full">
         <HeroDescriptionOne></HeroDescriptionOne>
       </div>
-      <div className="bg-black">
+      <div className="bg-black" id="location">
         <LocationCard></LocationCard>
       </div>
       <div className="bg-black w-full">
@@ -30,13 +30,13 @@ const Home = () => {
       <div className="overflow-hidden bg-black py-12">
         <Landscape></Landscape>
       </div>
-      <div className="overflow-hidden">
+      <div className="overflow-hidden" id="layout">
         <LayoutMap></LayoutMap>
       </div>
-      <div className="w-full bg-black py-12">
+      <div className="w-full bg-black py-12" id="gallery">
         <Gallery></Gallery>
       </div>
-      <div className="w-full bg-black">
+      <div className="w-full bg-black" id="vrview">
         <VRTour></VRTour>
       </div>
     </section>

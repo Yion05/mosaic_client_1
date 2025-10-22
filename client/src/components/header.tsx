@@ -1,12 +1,32 @@
-import { Link, useLocation } from "react-router";
+import { Link } from "react-router";
 import * as React from "react";
 import { FaAlignJustify } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 
 const Header = () => {
-  const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] =
     React.useState<boolean>(false);
+
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    hash: string
+  ) => {
+    e.preventDefault();
+
+    const targetId = hash.substring(1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      window.history.pushState(null, "", hash);
+    }
+
+    closeMobileMenu();
+  };
 
   const headerData = [
     {
@@ -40,7 +60,11 @@ const Header = () => {
   };
 
   return (
-    <header className={`shadow-2xl sticky z-50 top-0 bg-black flex justify-between px-4 md:px-36 py-4 md:py-8 ${isMobileMenuOpen ? `bg-secondary items-start` : `items-center`} text-white`}>
+    <header
+      className={`shadow-2xl sticky z-50 top-0 bg-black flex justify-between px-4 md:px-36 py-4 md:py-8 ${
+        isMobileMenuOpen ? `bg-secondary items-start` : `items-center`
+      } text-white`}
+    >
       <div className={isMobileMenuOpen ? "hidden sm:block" : "block"}>
         <span>
           <img
@@ -55,6 +79,7 @@ const Header = () => {
         <section className="flex items-center text-xl gap-4">
           {headerData.map((data, index) => (
             <Link
+              onClick={(e) => handleScroll(e, data.link)}
               to={data.link}
               key={index}
               className={`
@@ -65,11 +90,6 @@ const Header = () => {
                 ease-in-out
                 hover:scale-105
                 hover:text-accent
-                ${
-                  location.hash === data.link
-                    ? "border-b-2 border-accent text-accent"
-                    : "text-white"
-                }
               `}
             >
               {data.title}
@@ -89,15 +109,13 @@ const Header = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div
-          className="bg-secondary top-0 left-0 w-full h-screen bg-color-secondary text-white flex flex-col items-center justify-start py-12 space-y-8 z-60 transition-opacity duration-300 animate-fade-in"
-        >
+        <div className="bg-secondary top-0 left-0 w-full h-screen bg-color-secondary text-white flex flex-col items-center justify-start py-12 space-y-8 z-60 transition-opacity duration-300 animate-fade-in">
           <nav className="grid flex-col items-center text-center space-y-6 text-xl">
             {headerData.map((data, index) => (
               <Link
+                onClick={(e) => handleScroll(e, data.link)}
                 to={data.link}
                 key={index}
-                onClick={closeMobileMenu}
                 className="hover:text-secondary transition duration-300"
               >
                 {data.title}
