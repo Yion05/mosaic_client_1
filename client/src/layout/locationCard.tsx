@@ -11,22 +11,22 @@ const LocationCard = () => {
         <img src="/assets/location_2.webp" alt="location_path" />
       </span>
       <span className="flex flex-col md:flex-row gap-12 items-start px-4 md:px-12">
-        <div className="flex flex-col space-y-6 w-full md:w-2/5">
+        <div className="flex flex-col space-y-6 w-full md:w-3/5 lg:w-2/5">
           <img
             src="/assets/life_easier_text.webp"
             alt="Life's Easier when everything a stop away"
             className="w-full h-auto"
           />
 
-          <span className="grid grid-cols-2 gap-4 text-center mx:py-12 px-4 my-24">
+          <span className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center mx:py-12 my-24 not-sm:px-24">
             {locationData.map((item, index) => {
               const IconComponent = item.icon;
               return (
                 <div
                   key={index}
-                  className="bg-secondary flex items-center justify-center gap-3 py-2 rounded-2xl hover:scale-105 hover:bg-primary hover:text-white duration-300"
+                  className="bg-secondary flex items-center justify-center gap-3 py-2 rounded-2xl hover:scale-105 hover:bg-primary hover:text-white duration-300 px-2"
                 >
-                  <IconComponent className="md:text-3xl" />
+                  <IconComponent className="md:text-3xl text-xl" />
                   <p className="text-xs md:text-sm font-semibold text-nowrap">{item.title}</p>
                 </div>
               );
