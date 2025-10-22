@@ -21,7 +21,7 @@ export const locationData = [
     icon: FaGraduationCap,
   },
   {
-    title: "RECREATION & LEISURE",
+    title: "RECREATION",
     icon: FaDumbbell,
   },
   {
@@ -29,7 +29,7 @@ export const locationData = [
     icon: FaMoneyBillAlt,
   },
   {
-    title: "HOME IMPROVEMENT",
+    title: "Renovation",
     icon: FaTools,
   },
 ];
