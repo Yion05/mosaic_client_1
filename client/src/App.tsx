@@ -6,7 +6,7 @@ function App() {
     <div className="font-main">
       <RouterProvider router={router}></RouterProvider>
       <a
-        href="https://wa.link/0k7h33"
+        href="https://api.whatsapp.com/send?phone=60162653108"
         target="_blank"
         rel="noopener noreferrer"
         title="Chat on WhatsApp"
