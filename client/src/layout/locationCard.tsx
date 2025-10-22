@@ -18,7 +18,7 @@ const LocationCard = () => {
             className="w-full h-auto"
           />
 
-          <span className="grid grid-cols-2 gap-4 text-center mx:py-12 lg:px-20 my-24">
+          <span className="grid grid-cols-2 gap-4 text-center mx:py-12 px-4 my-24">
             {locationData.map((item, index) => {
               const IconComponent = item.icon;
               return (
