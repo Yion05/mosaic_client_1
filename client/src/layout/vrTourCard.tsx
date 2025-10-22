@@ -38,7 +38,7 @@ const VRTour = () => {
             className="font-bold cursor-pointer duration-500 hover:text-accent hover:underline"
             onClick={copyToClipboard}
           >
-            0162653108
+            +6016-265 3108
           </span>
         </p>
       </span>
