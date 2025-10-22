@@ -1,27 +1,23 @@
 import { FaPhone, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
-  // const copyToClipboard = () => {
-  //   navigator.clipboard.writeText("healthxaxis@gmail.com");
-  // };
-
   return (
     <footer className="bg-black py-12 px-4 sm:px-8 md:px-12 lg:px-24 flex flex-col items-center text-center gap-12">
       <section className="grid grid-cols-2 items-center gap-12">
         <a
           href={"tel:0162653108"}
-          className="bg-accent flex items-center gap-4 px-4 py-2 rounded-2xl justify-center text-2xl"
+          className="bg-accent flex items-center gap-4 px-4 py-2 rounded-2xl justify-center text-2xl hover:bg-accent/70 duration-500 hover:-translate-y-2"
         >
           <FaPhone></FaPhone>
-          <p>Call</p>
+          <p className="font-semibold">Call</p>
         </a>
         <a
           href={"https://wa.link/0k7h33"}
           target="_blank"
-          className="text-white bg-green-500 flex items-center gap-4 px-4 py-2 rounded-2xl justify-center text-2xl"
+          className="text-white bg-green-500 flex items-center gap-4 px-4 py-2 rounded-2xl justify-center text-2xl hover:bg-green-500/70 duration-500 hover:-translate-y-2"
         >
           <FaWhatsapp></FaWhatsapp>
-          <p>Whatsapp</p>
+          <p className="font-semibold">Whatsapp</p>
         </a>
       </section>
       <section className="text-white">

@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
 import type { slideTemplate } from "../types/types";
 
-export const SlideTemplate = ({ slideFolder, slideData }: slideTemplate) => {
+export const SlideTemplate = ({ slideFolder, slideData, maxWidth }: slideTemplate) => {
+  const widthMap = {
+    1: "max-w-xl",
+    2: "max-w-7xl"
+  }
+
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const totalSlides = slideData.length;
 
@@ -31,7 +36,7 @@ export const SlideTemplate = ({ slideFolder, slideData }: slideTemplate) => {
   const translateValue = `-${currentSlide * 20}%`;
 
   return (
-    <div className="relative mx-auto max-w-7xl my-8">
+    <div className={`relative mx-auto my-8 ${widthMap[maxWidth]}`}>
       <div
         className={`relative rounded-xl overflow-hidden shadow-2xl`}
       >
