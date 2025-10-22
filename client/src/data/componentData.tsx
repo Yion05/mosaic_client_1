@@ -29,7 +29,7 @@ export const locationData = [
     icon: FaMoneyBillAlt,
   },
   {
-    title: "Renovation",
+    title: "RENOVATION",
     icon: FaTools,
   },
 ];
