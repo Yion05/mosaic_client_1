@@ -1,12 +1,25 @@
 import { Link } from "react-router";
+import useLazyLoad from "../hook/useLazyLoad";
 
 const VRTour = () => {
   const copyToClipboard = () => {
     navigator.clipboard.writeText("0162653108");
   };
 
+  const [sectionRef, isVisible] = useLazyLoad({
+    rootMargin: "0px 0px -100px 0px",
+  });
+
+  const slideFromTopAnimation = `
+    transition-all duration-1000 ease-out delay-200
+    ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-36"}
+  `;
+
   return (
-    <section className="flex flex-col items-center py-24 text-white px-4">
+    <section
+      className="flex flex-col items-center py-24 text-white px-4"
+      ref={sectionRef as React.RefObject<HTMLDivElement>}
+    >
       <h1 className="font-light text-3xl sm:text-4xl lg:text-5xl text-accent mb-4 text-center">
         SHOW UNIT READY FOR VIEWING
       </h1>
@@ -18,10 +31,13 @@ const VRTour = () => {
       >
         360° VR Tour
       </Link>
-      <span className="mt-12">
+      <span className={`${slideFromTopAnimation} mt-12`}>
         <p className="text-3xl text-center">
           For more information or actual site viewing please call{" "}
-          <span className="font-bold cursor-pointer duration-500 hover:text-accent hover:underline" onClick={copyToClipboard}>
+          <span
+            className="font-bold cursor-pointer duration-500 hover:text-accent hover:underline"
+            onClick={copyToClipboard}
+          >
             0162653108
           </span>
         </p>

@@ -2,6 +2,7 @@ import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 import { layoutImage } from "../data/componentData";
 import { FaTimes } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
+import useLazyLoad from "../hook/useLazyLoad";
 
 interface ImageModalProps {
   imageUrl: string;
@@ -58,6 +59,15 @@ const ImageModal = ({ imageUrl, onClose }: ImageModalProps) => {
 const LayoutMap = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
+  const [sectionRef, isVisible] = useLazyLoad({
+    rootMargin: "0px 0px -100px 0px",
+  });
+
+  const slideFromTopAnimation = `
+    transition-all duration-1000 ease-out delay-200
+    ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
+  `;
+
   const openModal = (imagePath: string) => {
     setSelectedImage(imagePath);
   };
@@ -69,7 +79,7 @@ const LayoutMap = () => {
   const masterPlanPath = "/assets/layout_2.webp";
 
   return (
-    <section className=" text-white py-16 md:py-24">
+    <section className={`text-white py-16 md:py-24 ${slideFromTopAnimation}`} ref={sectionRef as React.RefObject<HTMLDivElement>}>
       <div className="flex flex-col items-center">
         <div className="text-center flex flex-col items-center mb-12 px-4">
           <h1 className="font-light text-3xl sm:text-4xl lg:text-5xl text-accent">

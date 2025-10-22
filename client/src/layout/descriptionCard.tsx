@@ -1,7 +1,18 @@
+import useLazyLoad from "../hook/useLazyLoad";
+
 const HeroDescriptionOne = () => {
+  const [sectionRef, isVisible] = useLazyLoad({
+    rootMargin: "0px 0px -100px 0px",
+  });
+
+  const slideFromTopAnimation = `
+    transition-all duration-1000 ease-out delay-200
+    ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
+  `;
+
   return (
-    <section className="bg-black py-16 md:py-24 w-full px-4">
-      <div className="text-center flex flex-col items-center">
+    <section className="bg-black py-16 md:py-24 w-full px-4" ref={sectionRef as React.RefObject<HTMLDivElement>} >
+      <div className={`text-center flex flex-col items-center ${slideFromTopAnimation}`}>
         <h1 className="text-accent font-normal text-3xl md:text-4xl mb-6 md:mb-8 leading-snug">
           Welcome to Mosaic, an exclusive service apartment in USJ 1, Subang
           Jaya.
