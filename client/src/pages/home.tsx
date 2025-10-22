@@ -4,6 +4,7 @@ import Landscape from "../layout/landScape";
 import LayoutMap from "../layout/layoutMap";
 import LocationCard from "../layout/locationCard";
 import VideoHeroOne from "../layout/videoHeroOne";
+import VRTour from "../layout/vrTourCard";
 
 const Home = () => {
   return (
@@ -25,6 +26,9 @@ const Home = () => {
       </div>
       <div className="w-full bg-black py-12">
         <Gallery></Gallery>
+      </div>
+      <div className="w-full bg-black">
+        <VRTour></VRTour>
       </div>
     </section>
   );
